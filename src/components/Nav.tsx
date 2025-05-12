@@ -1,8 +1,12 @@
-import React from 'react'
-//TODO
+import { HStack, Image } from '@chakra-ui/react'
+import logo from '../assets/image.png'
+import { ColorModeButton } from './ui/color-mode'
 const Nav = () => {
   return (
-    <div>Nav</div>
+    <HStack justifyContent={"space-between"} >
+       <Image src={logo} boxSize={"10"}/>
+       <ColorModeButton/>
+    </HStack>
   )
 }
 
