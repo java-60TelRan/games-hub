@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import api from '../services/api-client'
-import { Game, FetchGamesResponse } from '../model/fetch-game-types'
-import { SimpleGrid, Text} from '@chakra-ui/react'
-import GameCard from './GameCard'
-import { AxiosError } from 'axios'
+import { Text} from '@chakra-ui/react'
 import { Genre } from '../model/fetch-genre-types'
+import useData from '../hooks/useData'
 
 const GenreList = () => {
-    
+    const {data, error} = useData<Genre>("/genres");
+    const genres = data;
 
     
     

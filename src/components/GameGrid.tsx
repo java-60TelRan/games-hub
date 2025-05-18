@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import api from '../services/api-client'
-import { Game, FetchGamesResponse } from '../model/fetch-game-types'
+import { Game,  } from '../model/fetch-game-types'
 import { SimpleGrid, Text} from '@chakra-ui/react'
 import GameCard from './GameCard'
-import { AxiosError } from 'axios'
+import useData from '../hooks/useData'
 
 const GameGrid = () => {
     
-
-    
+const {error, data} = useData<Game>("/games");
+ const games = data;   
     
   return (
     <>
