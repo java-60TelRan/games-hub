@@ -1,8 +1,8 @@
-# HW #36 Definition
-## Error Handling
-### In the case of error in AXIOS request an appropriate message should appear instead of the SimpleGrid
-## Adding description in GameCard
-### introducing Badge Chakra component with the value of metacritic
-#### in the case the metacritic value greater than 90 the badge should have backgraund color green and text color white
-#### in the case the metacritic value less or equal  90 the badge should have backgraund color lightgray and text color black
-### Text containing the supported platforms (see field "platforms")
+# HW #37 Definition
+## Introducing Spinner
+### Displaying genres and games should be followed by displaying some Spinner for showing waiting for data
+## GenreList UI improvment 
+### Consider Chakra UI List component (List.Root, List.Item)
+#### List.Item contains like 
+##### 1. Avatar with a genre's image
+##### 2. Button with a genre's name (variant "outline" with no border)

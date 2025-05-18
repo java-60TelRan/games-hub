@@ -1,11 +1,10 @@
-import { Game,  } from '../model/fetch-game-types'
 import { SimpleGrid, Text} from '@chakra-ui/react'
 import GameCard from './GameCard'
-import useData from '../hooks/useData'
+import useGame from '../hooks/useGame'
 
 const GameGrid = () => {
     
-const {error, data} = useData<Game>("/games");
+const {error, data} = useGame();
  const games = data;   
     
   return (

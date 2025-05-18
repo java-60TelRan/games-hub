@@ -1,9 +1,8 @@
 import { Text} from '@chakra-ui/react'
-import { Genre } from '../model/fetch-genre-types'
-import useData from '../hooks/useData'
+import useGenre from '../hooks/useGenre';
 
 const GenreList = () => {
-    const {data, error} = useData<Genre>("/genres");
+    const {data, error} = useGenre();
     const genres = data;
 
     
