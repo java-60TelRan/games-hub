@@ -1,8 +1,7 @@
-import { NumberInputControlProps } from "@chakra-ui/react";
 
 export interface Platform {
     platform: {
-        name: number
+        slug: string
     }
     
 }

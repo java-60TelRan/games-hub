@@ -23,7 +23,7 @@ const GameCard: React.FC<Props> = ({game}) => {
         <Card.Title>{game.name}</Card.Title>
         <Card.Footer>
           <HStack justifyContent={'space-between'}>
-                     <Text >{game.platforms.map(p => p.platform.name).join("; ")}</Text>
+                     <Text >{game.platforms.map(p => p.platform.slug).join("; ")}</Text>
                      <Badge {...getColors(game.metacritic)} fontSize={"0.5rem"} borderRadius={20}>{game.metacritic}</Badge>
                     
                  </HStack>
