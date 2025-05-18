@@ -7,15 +7,7 @@ import { AxiosError } from 'axios'
 import { Genre } from '../model/fetch-genre-types'
 
 const GenreList = () => {
-    const [genres, setGenres] = useState<Genre[]>()
-    const [error, setError] = useState<string>("");
-    useEffect(() => {
-    api.get<FetchGamesResponse>("/genres")
-    .then(res => setGenres(res.data.results))
-    .catch((e:AxiosError) => {
-        setError(e.message)
-    }) 
-    }, [])
+    
 
     
     

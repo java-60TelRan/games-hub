@@ -5,7 +5,3 @@ export interface Genre {
     name: string;
     
 }
-export interface FetchGamesResponse {
-    count: number;
-    results: Genre[];
-}

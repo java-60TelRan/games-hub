@@ -6,15 +6,7 @@ import GameCard from './GameCard'
 import { AxiosError } from 'axios'
 
 const GameGrid = () => {
-    const [games, setGames] = useState<Game[]>()
-    const [error, setError] = useState<string>("");
-    useEffect(() => {
-    api.get<FetchGamesResponse>("/games")
-    .then(res => setGames(res.data.results))
-    .catch((e:AxiosError) => {
-        setError(e.message)
-    }) 
-    }, [])
+    
 
     
     
