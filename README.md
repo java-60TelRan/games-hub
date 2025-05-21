@@ -1,8 +1,5 @@
-# HW #37 Definition
-## Introducing Spinner
-### Displaying genres and games should be followed by displaying some Spinner for showing waiting for data
-## GenreList UI improvment 
-### Consider Chakra UI List component (List.Root, List.Item)
-#### List.Item contains like 
-##### 1. Avatar with a genre's image
-##### 2. Button with a genre's name (variant "outline" with no border)
+# HW #38 Definition
+## Building reusable component Rater see TODO comments in the file Rater.tsx
+## Using the component Rater in the Card.Footer insid Game Card
+### Use field "rating" in the Games response
+### Assume that maxRate value is 5
