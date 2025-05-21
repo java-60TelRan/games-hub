@@ -1,14 +1,14 @@
-import { SimpleGrid, Text} from '@chakra-ui/react'
+import { SimpleGrid, Spinner, Text} from '@chakra-ui/react'
 import GameCard from './GameCard'
 import useGame from '../hooks/useGame'
 
 const GameGrid = () => {
     
-const {error, data} = useGame();
- const games = data;   
+const {error, data: games, isLoading} = useGame();
     
   return (
     <>
+    {isLoading && <Spinner></Spinner>}
     {error? <Text color={"red"} fontSize={"2rem"}>{error}</Text> : <SimpleGrid marginStart={{
       base:8,
       sm: 5,

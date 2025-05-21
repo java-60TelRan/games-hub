@@ -17,7 +17,7 @@ function App() {
       <GridItem area="nav"><Nav></Nav>
       </GridItem>
       <Stack hideBelow="md">
-        <GridItem area="aside" >
+        <GridItem area="aside" paddingX="5" >
           <GenreList></GenreList>
         </GridItem>
       </Stack>
