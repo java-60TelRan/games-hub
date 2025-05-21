@@ -5,9 +5,10 @@ import { ColorModeButton } from './components/ui/color-mode'
 import Nav from './components/Nav'
 import GameGrid from './components/GameGrid'
 import GenreList from './components/GenreList'
+import { useState } from 'react'
 
 function App() {
- 
+ const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
 
   return (
     <Grid templateAreas={{
@@ -18,11 +19,11 @@ function App() {
       </GridItem>
       <Stack hideBelow="md">
         <GridItem area="aside" paddingX="5" >
-          <GenreList></GenreList>
+          <GenreList selectedGenre={selectedGenre} onSelectGenre={(selectedGenre) => setSelectedGenre(selectedGenre)}></GenreList>
         </GridItem>
       </Stack>
       <GridItem area="main" >
-          <GameGrid></GameGrid>
+          <GameGrid selectedGenre={selectedGenre}></GameGrid>
       </GridItem>
     </Grid>
   )
