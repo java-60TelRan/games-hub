@@ -39,6 +39,7 @@ function App() {
         <FaRegStar></FaRegStar>
         <FaStarHalf></FaStarHalf>
         <FaRegStarHalf></FaRegStarHalf>
+        <FaStarHalfAlt></FaStarHalfAlt>
     </HStack>
   )
 }
