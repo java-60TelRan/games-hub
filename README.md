@@ -1,5 +1,9 @@
-# HW #38 Definition
-## Building reusable component Rater see TODO comments in the file Rater.tsx
-## Using the component Rater in the Card.Footer insid Game Card
-### Use field "rating" in the Games response
-### Assume that maxRate value is 5
+# HW #39 Definition
+## Refactoring
+### Instead of separated variables like selectedPlatform, selectedGenre,etc., introduce interface GameQuery. Each field of the interface will reflect a separated variable
+#### Update of the components in accordance with the mentioned above item
+## Building SortSelector component
+### Allows defining ordering by relevance in accordance with the API documentation from https://api.rawg.io/docs/#operation/games_list 
+### Similar to the PlatformSelector component having built at the CW #39
+### The menu items should be taken from some configuration presenting array of objects like
+[{"value":"-rating", "displayedName":"Popularity"},{"value":"-metacritic", "displayedName":"Critic Score"},... ]
