@@ -1,5 +1,5 @@
 import { HStack } from '@chakra-ui/react';
-import {FC, ReactNode} from 'react'
+import {FC, ReactNode, useMemo} from 'react'
 import { FaRegStar, FaStar, FaStarHalfAlt } from 'react-icons/fa';
 interface Props {
     starsNumber?: number;
@@ -24,7 +24,8 @@ const Rater: FC<Props> = ({starsNumber=5, maxRate=5, rate}) => {
     //if fractional part greater than 0.75 then number of filled stars will be integer part + 1
   
 
-  const { filledStars, halfFilledStar, emptyStars } = getStarsDistribution();
+  const { filledStars, halfFilledStar, emptyStars } = useMemo(() => getStarsDistribution(),
+   [starsNumber, maxRate, rate]);
   function getStarsDistribution(): {
     filledStars: number;
     halfFilledStar: boolean;
