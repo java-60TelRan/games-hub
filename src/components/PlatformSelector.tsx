@@ -14,7 +14,7 @@ const PlatformSelector: FC<Props> = ({onSelectPlatform, selectedPlatform}) => {
     <>
     
         {isLoading && <Spinner></Spinner>}
-        {!error && <Menu.Root >
+        {!error && <Menu.Root onExitComplete={() => setIsOpen(false)}>
       <Menu.Trigger asChild>
         <Button variant="outline" size="sm" marginBottom={3} onClick={() => setIsOpen(!isOpen)}>
          { selectedPlatform?.name || "Platforms"}
