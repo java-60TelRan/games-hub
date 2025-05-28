@@ -3,13 +3,13 @@ import GameCard from './GameCard'
 import useGame from '../hooks/useGame'
 import { FC } from 'react'
 import ParentPlatform from '../model/ParentPlatform';
+import GameQuery from '../model/GameQuery';
 interface Props {
-  selectedGenre: string | null;
-  selectedPlatform: ParentPlatform | null;
+    gameQuery: GameQuery
 }
-const GameGrid: FC<Props> = ({selectedGenre, selectedPlatform}) => {
+const GameGrid: FC<Props> = ({gameQuery}) => {
     
-const {error, data: games, isLoading} = useGame(selectedGenre, selectedPlatform);
+const {error, data: games, isLoading} = useGame(gameQuery);
     
   return (
     <>
