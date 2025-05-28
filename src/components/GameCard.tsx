@@ -31,7 +31,7 @@ const GameCard: React.FC<Props> = ({ game }) => {
       />
       <Card.Body gap="2">
         <Card.Title overflow={"hidden"}
-        textWrap={"nowrap"}>{game.name}</Card.Title>
+        textWrap={"nowrap"} textOverflow={"ellipsis"}>{game.name}</Card.Title>
         <Card.Footer>
           <VStack>
             <HStack justifyContent={"space-between"}>
