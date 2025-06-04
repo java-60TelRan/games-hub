@@ -1,18 +1,25 @@
 import { Menu, Button, Portal, Spinner } from '@chakra-ui/react'
 import { FC, useState } from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
-import usePlatform from '../hooks/usePlatform';
-import ParentPlatform from '../model/ParentPlatform';
 import MotionComponent from './MotionComponent';
+import useGenre from '../hooks/useGenre';
 
 interface Props {
-    onSelectPlatform: (selectedPlatform: ParentPlatform | null) => void;
-    selectedPlatform: ParentPlatform | null
+    onSelectGenre: (selectedGenre: string|null) => void;
+    selectedGenre: string | null
 }
 const duration=0.7;
-const PlatformSelector: FC<Props> = ({onSelectPlatform, selectedPlatform}) => {
-    const {error, data:platforms, isLoading} = usePlatform();
-   const [isOpen, setIsOpen] =  useState<boolean>(false)
+const GenreSelector: FC<Props> = ({onSelectGenre, selectedGenre}) => {
+    const {error, data:genres, isLoading} = useGenre();
+   const [isOpen, setIsOpen] =  useState<boolean>(false);
+   function getGenreName(genreSlug: string | null): string | null {
+    let res: string | null = null;
+    if (genreSlug) {
+      const genre = genres.find(g => genreSlug === g.slug);
+      genre && (res = genre.name)
+    }
+    return res;
+   }
   return (
     <>
     
@@ -20,7 +27,7 @@ const PlatformSelector: FC<Props> = ({onSelectPlatform, selectedPlatform}) => {
         {!error && <Menu.Root onExitComplete={() => setIsOpen(false)}>
       <Menu.Trigger asChild>
         <Button variant="outline" size="sm" marginBottom={3} onClick={() => setIsOpen(!isOpen)}>
-         { selectedPlatform?.name || "Platforms"}
+         { getGenreName(selectedGenre) || "Genres"}
           {isOpen ? <MotionComponent duration={duration}>
             <FaChevronUp></FaChevronUp>
           </MotionComponent> :<FaChevronDown></FaChevronDown>}
@@ -30,10 +37,10 @@ const PlatformSelector: FC<Props> = ({onSelectPlatform, selectedPlatform}) => {
         <Menu.Positioner>
           <MotionComponent duration={duration}>
             <Menu.Content>
-            <Menu.Item key={"platform"} value={""}
-               onClick={() => {onSelectPlatform(null); setIsOpen(false)}}>All platforms</Menu.Item>
-              {platforms.map(p => <Menu.Item key={p.id} value={p.id}
-               onClick={() => {onSelectPlatform(p); setIsOpen(false)}}>{p.name}</Menu.Item>)}
+            <Menu.Item key={"genre"} value={""}
+               onClick={() => {onSelectGenre(null); setIsOpen(false)}}>All genres</Menu.Item>
+              {genres.map(g => <Menu.Item key={g.slug} value={g.slug}
+               onClick={() => {onSelectGenre(g.slug); setIsOpen(false)}}>{g.name}</Menu.Item>)}
             </Menu.Content>
           </MotionComponent>
         </Menu.Positioner>
@@ -44,4 +51,4 @@ const PlatformSelector: FC<Props> = ({onSelectPlatform, selectedPlatform}) => {
   )
 }
 
-export default PlatformSelector
+export default GenreSelector
