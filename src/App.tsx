@@ -51,7 +51,7 @@ function App() {
             }
             selectedOrdering={gameQuery.ordering}
           ></SortSelector>
-          <Box as="div" display={"inline"}hideBelow={"sm"} hideFrom={"md"}><GenreSelector selectedGenre={gameQuery.genreName} onSelectGenre={(genreName) =>
+          <Box as="span" hideBelow={"sm"} hideFrom={"md"}><GenreSelector selectedGenre={gameQuery.genreName} onSelectGenre={(genreName) =>
           setGameQuery({...gameQuery, genreName})}
           ></GenreSelector></Box>
         </HStack>
