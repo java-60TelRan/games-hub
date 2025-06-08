@@ -1,15 +1,15 @@
 import { Text, List, HStack, Avatar, Button, Spinner } from "@chakra-ui/react";
 import useGenre from "../hooks/useGenre";
 import { FC } from "react";
-interface Props {
-  onSelectGenre: (genreSlug: string | null) => void;
-  selectedGenre: string | null
-}
+import useGameQueryStore from "../../state-management/store";
+
 function getSelectedStyls(slug: string, selectedGenre: string | null) : {fontWeight: string, color: string} {
      return slug === selectedGenre ? {fontWeight: "bold", color: "red"}: {fontWeight: "normal", color: "initial"}
 }
-const GenreList: FC<Props> = ({onSelectGenre, selectedGenre}) => {
+const GenreList: FC = () => {
  const {data: genres, error, isLoading} = useGenre();
+ const selectedGenre = useGameQueryStore(s => s.genre);
+ const onSelectGenre = useGameQueryStore(s => s.setGenre);
  return  (
     <>
     {isLoading && <Spinner></Spinner>}

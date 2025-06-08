@@ -1,9 +1,9 @@
+import useGameQueryStore from "../../state-management/store";
 import { Game } from "../model/fetch-game-types";
-import GameQuery from "../model/GameQuery";
 import useData from "./useData";
 
-export default function useGame(gameQuery: GameQuery): {data: Game[], isLoading: boolean, error: string} {
-    console.log(gameQuery.searchText)
-    return useData<Game>("/games", {params:{genres: gameQuery.genreName, parent_platforms:gameQuery.platform?.id,
-         ordering: gameQuery.ordering?.value, search: gameQuery.searchText}}, [gameQuery]);
+export default function useGame(): {data: Game[], isLoading: boolean, error: string} {
+    const {genre, search, ordering, platform} = useGameQueryStore();
+    return useData<Game>("/games", {params:{genres: genre, parent_platforms:platform?.id,
+         ordering: ordering?.value, search: search}}, [genre, search, ordering?.value, platform?.id]);
 }
