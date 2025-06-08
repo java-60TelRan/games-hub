@@ -17,10 +17,10 @@ const useGameQueryStore = create<GameQueryStore>((set) => ({
   platform: null,
   ordering: null,
   setSearch: (search) =>
-    set(() => ({search})),
+    set(() => ({search, genre: null})),
   setGenre: (genre) =>
     set((state) => {
-       return state.genre === genre ? state : {genre}
+       return state.genre === genre ? state : {genre, search: null}
     }),
   setOrdering: (ordering) =>
     set((state) => {

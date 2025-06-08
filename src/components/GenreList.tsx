@@ -10,6 +10,7 @@ const GenreList: FC = () => {
  const {data: genres, error, isLoading} = useGenre();
  const selectedGenre = useGameQueryStore(s => s.genre);
  const onSelectGenre = useGameQueryStore(s => s.setGenre);
+ console.log("genre list");
  return  (
     <>
     {isLoading && <Spinner></Spinner>}
